@@ -1,5 +1,6 @@
 package com.example.demad.room
 
+import android.arch.lifecycle.LiveData
 import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
@@ -9,7 +10,7 @@ interface WordDao {
 
     //method to get all the words and have it return a List of Words.
     @Query("SELECT * from word_table ORDER BY word ASC")
-    fun getAllWords(): List<Word>
+    fun getAllWords(): LiveData<List<Word>>
 
     //method to insert one word
     @Insert
